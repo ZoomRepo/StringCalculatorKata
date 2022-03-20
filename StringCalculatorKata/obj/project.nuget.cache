@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "T/pVFCyXDTRnhJLdYvzF7sMiAY55D7hUKdjTXwyNI981WfcpAVMCds2xA+OKB4jhJ1gLwgDyG6g0y2fHQW9zYg==",
+  "dgSpecHash": "jb/Mj2RNu7wBAOMo6PfkdeGVtBf0RaLOD+NoyJv2xnIdjaYfIEWOAI5ruYq1UpaEsOd23Kx6iuBWIxlqle9TcQ==",
   "success": true,
-  "projectFilePath": "C:\\development\\Learning\\StringCalculatorKata\\StringCalculatorKata.csproj",
+  "projectFilePath": "C:\\development\\Learning\\StringCalcKata\\StringCalculatorKata\\StringCalculatorKata.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ollie\\.nuget\\packages\\coverlet.collector\\3.1.0\\coverlet.collector.3.1.0.nupkg.sha512",
     "C:\\Users\\Ollie\\.nuget\\packages\\microsoft.codecoverage\\16.11.0\\microsoft.codecoverage.16.11.0.nupkg.sha512",

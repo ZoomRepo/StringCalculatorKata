@@ -8,5 +8,10 @@ namespace StringCalculatorKata
 {
     public class StringCalculator
     {
+        public object Add(string name)
+        {
+            return 0;
+        }
+
     }
 }
