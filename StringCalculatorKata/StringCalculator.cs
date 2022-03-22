@@ -25,13 +25,13 @@ namespace StringCalculatorKata
                 var delimeter_section = cleanedInput.Split('\n').First();
                 if (delimeter_section.Contains("[")) {
                     var delimeter_list = delimeter_section.Split("]");
-                    var delimeter = delimeter_list.Select(s => s.TrimStart('[').TrimEnd(']')).First();
-                    numberSet = numberSet.Replace(delimeter, ",");
+                    var cleanDelimeterList = delimeter_list.Select(s => s.TrimStart('[').TrimEnd(']')).Where(n => n.Length > 0).ToArray();
+                    
+                    foreach(var delimeter in cleanDelimeterList) numberSet = numberSet.Replace(delimeter, ",");
                 } else
                 {
                     delimeters.Add(Convert.ToChar(delimeter_section));
                 }
-
             }
 
             var numbers = numberSet

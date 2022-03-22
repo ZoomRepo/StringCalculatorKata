@@ -99,5 +99,16 @@ namespace StringCalculatorKata
             //Assert
             Assert.Equal(expectedResult, result);
         }
+
+        [Theory]
+        [InlineData("//[||][%]\n1||2%3", 6)]
+        public void MultipleCutomDelimeterCanBeAnyLength(string inputParam, int expectedResult)
+        {
+            //Act
+            var result = _calculator.Add(inputParam);
+
+            //Assert
+            Assert.Equal(expectedResult, result);
+        }
     }
 }
