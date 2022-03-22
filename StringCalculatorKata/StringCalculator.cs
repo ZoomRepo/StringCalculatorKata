@@ -32,7 +32,7 @@ namespace StringCalculatorKata
 
             foreach(var value in numbers) if (value.ToString().Contains("-")) error_values += (value) + ", ";
 
-            if (error_values.Count() > 0) return "Negatives not allowed: " + error_values.ToString().TrimEnd(' ', ',');
+            if (error_values.Count() > 0) throw new Exception("Negatives not allowed: " + error_values.ToString().TrimEnd(' ', ','));
 
             result = numbers.Sum();
             return result;

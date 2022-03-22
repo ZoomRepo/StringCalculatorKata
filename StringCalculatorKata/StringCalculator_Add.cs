@@ -1,3 +1,4 @@
+using System;
 using Xunit;
 
 namespace StringCalculatorKata
@@ -70,6 +71,19 @@ namespace StringCalculatorKata
         public void CallingAddWithNegativeNumbersWillThrowException(string inputParam, string expectedResult)
         {
             //Act
+            Action action = () => _calculator.Add(inputParam);
+
+            var ex = Assert.Throws<Exception>(action);
+
+            //Assert
+            Assert.Equal(expectedResult, ex.Message);
+        }
+
+        [Theory]
+        [InlineData("//;\n1001;2;3", 5)]
+        public void NumbersBiggerThanOneThousandWillBeIgnored(string inputParam, int expectedResult)
+        {
+            //Act
             var result = _calculator.Add(inputParam);
 
             //Assert
@@ -77,8 +91,8 @@ namespace StringCalculatorKata
         }
 
         [Theory]
-        [InlineData("//;\n1001;2;3", 5)]
-        public void NumbersBiggerThanOneThousandWillBeIgnored(string inputParam, int expectedResult)
+        [InlineData("//[|||]\n1|||2|||3", 6)]
+        public void CutomDelimeterCanBeAnyLength(string inputParam, int expectedResult)
         {
             //Act
             var result = _calculator.Add(inputParam);
