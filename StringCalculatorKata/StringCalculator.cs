@@ -11,10 +11,19 @@ namespace StringCalculatorKata
         public object Add(string input)
         {
             if (String.IsNullOrEmpty(input)) return 0;
+            var cleaned_input = input;
+            var number_set = input;
+            var delimeters = new List<char> { ',', '\n' };
 
-            var delimeters = new char [] { ',', '\n' };
+            if (input.StartsWith("//"))
+            {
+                number_set = cleaned_input.Split("\n")[1];
+                cleaned_input = input.Substring(2, input.Length - 2);
+                var delimeter = cleaned_input.Split('\n').First();
+                delimeters.Add(Convert.ToChar(delimeter));
+            }
 
-            var numbers = input.Split(delimeters)
+            var numbers = number_set.Split(delimeters.ToArray())
                 .Select(s => int.Parse(s));
 
             var result = numbers.Sum();
