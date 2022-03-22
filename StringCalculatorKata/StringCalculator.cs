@@ -12,7 +12,9 @@ namespace StringCalculatorKata
         {
             if (String.IsNullOrEmpty(input)) return 0;
 
-            var numbers = input.Split(',')
+            var delimeters = new char [] { ',', '\n' };
+
+            var numbers = input.Split(delimeters)
                 .Select(s => int.Parse(s));
 
             var result = numbers.Sum();
