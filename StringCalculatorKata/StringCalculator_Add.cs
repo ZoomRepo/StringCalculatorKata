@@ -32,8 +32,8 @@ namespace StringCalculatorKata
         [Theory]
         [InlineData("1,2", 3)]
         [InlineData("7,2,3", 12)]
-        [InlineData("-1,6", 5)]
-        public void GivenXNumbersCommaSeparatedReturnsSum(string inputParam, int expectedResult)
+        [InlineData("-1,6", "Negatives not allowed: -1")]
+        public void GivenXNumbersCommaSeparatedReturnsSum(string inputParam, object expectedResult)
         {
             //Act
             var result = _calculator.Add(inputParam);
