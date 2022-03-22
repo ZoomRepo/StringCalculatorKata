@@ -35,7 +35,9 @@ namespace StringCalculatorKata
 
         [Theory]
         [InlineData("1,2", 3)]
-        public void GivenTwoNumbersReturnsSum(string inputParam, int expectedResult)
+        [InlineData("7,2,3", 12)]
+        [InlineData("-1,6", 5)]
+        public void GivenXNumbersReturnsSum(string inputParam, int expectedResult)
         {
             //Arrange
             var calculator = new StringCalculator();
@@ -46,5 +48,6 @@ namespace StringCalculatorKata
             //Assert
             Assert.Equal(expectedResult, result);
         }
+
     }
 }

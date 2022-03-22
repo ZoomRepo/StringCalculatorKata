@@ -8,15 +8,16 @@ namespace StringCalculatorKata
 {
     public class StringCalculator
     {
-        public object Add(string numbers)
+        public object Add(string input)
         {
-            if (String.IsNullOrEmpty(numbers)) return 0;
-            
-            var result = numbers.Split(',')
+            if (String.IsNullOrEmpty(input)) return 0;
+
+            var numbers = input.Split(',')
                 .Select(s => int.Parse(s));
 
-            return result.Sum();
-        }
+            var result = numbers.Sum();
 
+            return result;
+        }
     }
 }
