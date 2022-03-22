@@ -10,8 +10,8 @@ namespace StringCalculatorKata
     {
         public object Add(string input)
         {
-            var cleaned_input = input;
-            var number_set = input;
+            var cleanedInput = input;
+            var numberSet = input;
             var delimeters = new List<char> { ',', '\n' };
             var error_values = "";
             var result = 0;
@@ -20,13 +20,21 @@ namespace StringCalculatorKata
 
             if (input.StartsWith("//"))
             {
-                number_set = cleaned_input.Split("\n")[1];
-                cleaned_input = input.Substring(2, input.Length - 2);
-                var delimeter = cleaned_input.Split('\n').First();
-                delimeters.Add(Convert.ToChar(delimeter));
+                numberSet = cleanedInput.Split("\n")[1];
+                cleanedInput = input.Substring(2, input.Length - 2);
+                var delimeter_section = cleanedInput.Split('\n').First();
+                if (delimeter_section.Contains("[")) {
+                    var delimeter_list = delimeter_section.Split("]");
+                    var delimeter = delimeter_list.Select(s => s.TrimStart('[').TrimEnd(']')).First();
+                    numberSet = numberSet.Replace(delimeter, ",");
+                } else
+                {
+                    delimeters.Add(Convert.ToChar(delimeter_section));
+                }
+
             }
 
-            var numbers = number_set
+            var numbers = numberSet
                 .Split(delimeters.ToArray())
                 .Select(s => int.Parse(s)).Where(n => n < 1000);
 
