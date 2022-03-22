@@ -28,7 +28,7 @@ namespace StringCalculatorKata
 
             var numbers = number_set
                 .Split(delimeters.ToArray())
-                .Select(s => int.Parse(s));
+                .Select(s => int.Parse(s)).Where(n => n < 1000);
 
             foreach(var value in numbers) if (value.ToString().Contains("-")) error_values += (value) + ", ";
 

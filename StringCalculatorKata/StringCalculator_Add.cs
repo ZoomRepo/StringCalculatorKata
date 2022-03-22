@@ -75,5 +75,16 @@ namespace StringCalculatorKata
             //Assert
             Assert.Equal(expectedResult, result);
         }
+
+        [Theory]
+        [InlineData("//;\n1001;2;3", 5)]
+        public void NumbersBiggerThanOneThousandWillBeIgnored(string inputParam, int expectedResult)
+        {
+            //Act
+            var result = _calculator.Add(inputParam);
+
+            //Assert
+            Assert.Equal(expectedResult, result);
+        }
     }
 }
