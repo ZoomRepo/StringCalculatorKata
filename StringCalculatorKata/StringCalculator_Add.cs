@@ -64,5 +64,16 @@ namespace StringCalculatorKata
             //Assert
             Assert.Equal(expectedResult, result);
         }
+
+        [Theory]
+        [InlineData("//;\n-1;2;-3", "Negatives not allowed: -1, -3")]
+        public void CallingAddWithNegativeNumbersWillThrowException(string inputParam, string expectedResult)
+        {
+            //Act
+            var result = _calculator.Add(inputParam);
+
+            //Assert
+            Assert.Equal(expectedResult, result);
+        }
     }
 }

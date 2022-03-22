@@ -10,10 +10,13 @@ namespace StringCalculatorKata
     {
         public object Add(string input)
         {
-            if (String.IsNullOrEmpty(input)) return 0;
             var cleaned_input = input;
             var number_set = input;
             var delimeters = new List<char> { ',', '\n' };
+            var error_values = "";
+            var result = 0;
+
+            if (String.IsNullOrEmpty(input)) return result;
 
             if (input.StartsWith("//"))
             {
@@ -23,11 +26,15 @@ namespace StringCalculatorKata
                 delimeters.Add(Convert.ToChar(delimeter));
             }
 
-            var numbers = number_set.Split(delimeters.ToArray())
+            var numbers = number_set
+                .Split(delimeters.ToArray())
                 .Select(s => int.Parse(s));
 
-            var result = numbers.Sum();
+            foreach(var value in numbers) if (value.ToString().Contains("-")) error_values += (value) + ", ";
 
+            if (error_values.Count() > 0) return "Negatives not allowed: " + error_values.ToString().TrimEnd(' ', ',');
+
+            result = numbers.Sum();
             return result;
         }
     }
